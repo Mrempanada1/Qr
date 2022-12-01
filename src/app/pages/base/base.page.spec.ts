@@ -18,7 +18,16 @@ xdescribe('BasePage', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+
+  it('Debe mostrar informacion del registro de asistencia', () => {
+    component.abrirRegistro('registro');
+    fixture.detectChanges();
+
+    const h2 = document.querySelector('h2');
+    const p = document.querySelector('p');
+
+    expect( h2?.textContent).toContain('QRCode');
+    expect( p?.textContent).toContain('Base de datos');
+    
   });
 });
